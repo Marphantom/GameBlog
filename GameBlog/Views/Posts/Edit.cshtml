@@ -1,0 +1,57 @@
+﻿@model GameBlog.Models.Post.EditPost
+
+@{
+    ViewData["Title"] = "Edit";
+    var category = ViewBag.Category as GameBlog.Entities.Category;
+}
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
+<h1>@category.CategoryName &gt; @Model.PostName</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-10">
+        <form asp-action="Edit" form enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PostName" class="control-label"></label>
+                <input asp-for="PostName" class="form-control" />
+                <span asp-validation-for="PostName" class="text-danger"></span>
+                <input asp-for="PostId" hidden class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="PostContent" class="control-label"></label>
+                <textarea asp-for="PostContent" class="form-control"></textarea>
+                <span asp-validation-for="PostContent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pictures" class="control-label"></label>
+                <input asp-for="Pictures" class="form-control" />
+                <span asp-validation-for="Pictures" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateSubmitted" class="control-label"></label>
+                <input asp-for="DateSubmitted" class="form-control" />
+                <span asp-validation-for="DateSubmitted" class="text-danger"></span>
+                <input asp-for="CategoryId" hidden class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a class="btn btn-outline-secondary" asp-controller="Posts" asp-action="Index" asp-route-catId="@Model.CategoryId">
+                    <i class="fa fa-backward"> Back to List</i>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <script>
+            $(document).ready(function () {
+                $('#PostContent').summernote();
+            });
+    </script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

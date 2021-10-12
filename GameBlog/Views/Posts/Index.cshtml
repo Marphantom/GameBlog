@@ -1,0 +1,70 @@
+﻿@model IEnumerable<GameBlog.Entities.Posts>
+
+@{
+    ViewData["Title"] = "Index";
+    var category = ViewBag.Category as GameBlog.Entities.Category;
+}
+
+@*<h1>@category.CategoryName</h1>*@
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">
+        <i class="fa fa-plus"> Create</i>
+    </a>
+    <a class="btn btn-outline-secondary" asp-controller="Category" asp-action="Index">
+        <i class="fa fa-backward"> Back to category</i>
+    </a>
+</p>
+<form class="input-group w-50 float-right" asp-action="Search" method="get">
+    <input type="text" class="form-control" placeholder="Search for" name="term" />
+    <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit">Search</button>
+    </div>
+</form>
+<table class="table table-bordered table-hover table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PostId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pictures)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateSubmitted)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var posts in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => posts.PostId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => posts.PostName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => posts.Pictures)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => posts.DateSubmitted)
+                </td>
+                <td class="text-right">
+                    <a class="btn btn-success btn-sm text-white" asp-controller="Posts" asp-action="Edit" asp-route-PostId="@posts.PostId">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                    <a class="btn btn-warning btn-sm text-white" asp-controller="Posts" asp-action="Detail" asp-route-PostId="@posts.PostId">
+                        <i class="fa fa-eye"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
