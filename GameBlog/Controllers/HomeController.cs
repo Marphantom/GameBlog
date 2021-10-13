@@ -58,5 +58,41 @@ namespace GameBlog.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [Route("Shop/ViewActtion/{categoryId}")]
+        public IActionResult ViewActtion(int categoryId)
+        {
+        return View(postService.GetPostByCategoryId(categoryId));
+        }
+
+        [Route("Shop/ViewRolePlaying/{categoryId}")]
+        public IActionResult ViewRolePlaying(int categoryId)
+        {
+            return View(postService.GetPostByCategoryId(categoryId));
+        }
+
+        [Route("Shop/ViewSport/{categoryId}")]
+        public IActionResult ViewSport(int categoryId)
+        {
+            return View(postService.GetPostByCategoryId(categoryId));
+        }
+
+        [Route("Shop/ViewQuizGame/{categoryId}")]
+        public IActionResult ViewQuizGame(int categoryId)
+        {
+            return View(postService.GetPostByCategoryId(categoryId));
+        }
+
+        [Route("Shop/ViewHorror/{categoryId}")]
+        public IActionResult ViewHorror(int categoryId)
+        {
+            return View(postService.GetPostByCategoryId(categoryId));
+        }
+
+        [Route("Shop/ViewStrategy/{categoryId}")]
+        public IActionResult ViewStrategy(int categoryId)
+        {
+            return View(postService.GetPostByCategoryId(categoryId));
+        }
     }
 }

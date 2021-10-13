@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GameBlog.Entities.Posts>
+﻿@model List<Posts>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -111,7 +111,7 @@
         <div class="container">
             <div class="rc-carousel nav-control-layout1" data-loop="true" data-items="30" data-margin="30" data-autoplay="false" data-autoplay-timeout="5000" data-smart-speed="2000" data-dots="false" data-nav="true" data-nav-speed="false" data-r-x-small="1" data-r-x-small-nav="true" data-r-x-small-dots="false" data-r-x-medium="1" data-r-x-medium-nav="true" data-r-x-medium-dots="false" data-r-small="1" data-r-small-nav="true" data-r-small-dots="false" data-r-medium="1" data-r-medium-nav="true" data-r-medium-dots="false" data-r-large="1" data-r-large-nav="true" data-r-large-dots="false" data-r-extra-large="1" data-r-extra-large-nav="true" data-r-extra-large-dots="false">
                 @foreach (var post in Model)
-                { 
+                {
                     <div class="slider-box-layout1">
                         <div class="item-img">
                             <img src="@Url.Content(post.Pictures)" alt="slider">
@@ -159,7 +159,7 @@
                                     </div>
                                 </div>
                             }
-                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-4 sidebar-widget-area sidebar-break-md">
@@ -197,8 +197,8 @@
                             </form>
                         </div>
                     </div>
-                   
-                 </div>
+
+                </div>
             </div>
         </div>
     </section>
