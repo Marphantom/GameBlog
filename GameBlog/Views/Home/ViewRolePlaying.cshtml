@@ -1,117 +1,119 @@
-﻿@model List<Posts>
-    @{
+﻿@model IEnumerable<GameBlog.Entities.Posts>
+@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
     var category = ViewBag.Category as GameBlog.Entities.Category;
     //var posts = ViewBag.Posts as GameBlog.Entities.Posts;
-    }
+}
 
-    <div id="wrapper" class="wrapper">
-        <!-- Add your site or application content here -->
-        <!-- Header Area Start Here -->
-        <header class="has-mobile-menu">
-            <div id="header-middlebar" class="pt--29 pb--29 bg--dark">
-                <div class="container">
-                    <div class="row d-flex align-items-center">
-                        <div class="col-lg-4">
-                            <div class="header-action-items">
-                                <ul>
-                                    <li class="item-social-layout2"> <a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li class="item-social-layout2"> <a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li class="item-social-layout2"> <a href="#"><i class="fab fa-instagram"></i></a></li>
-                                    <li class="item-social-layout2"> <a href="#"><i class="fab fa-youtube"></i></a></li>
-                                    <li class="item-social-layout2"> <a href="#"><i class="fas fa-rss"></i></a></li>
-                                    <li class="item-social-layout2"> <a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li class="item-social-layout2"> <a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 d-flex justify-content-center">
-                            <div class="logo-area">
-                                <a asp-controller="Home" asp-action="Index" class="temp-logo" id="temp-logo">
-                                    <h1 style="color:white">GameBlog</h1>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 d-flex justify-content-end">
-                            <div class="header-action-items">
-                                <ul>
-                                    <li class="header-search-box divider-style-border">
-                                        <a href="#header-search" title="Search">
-                                            <i class="flaticon-magnifying-glass"></i>
-                                        </a>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="rt-sticky-placeholder"></div>
-            <div id="header-menu" class="header-menu menu-layout1 bg--light">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <nav id="dropdown" class="template-main-menu">
-                                <ul>
-                                    <li class="hide-on-mobile-menu">
-                                        <a asp-controller="Account" asp-action="Login">Login</a>
-                                    </li>
-                                    <li class="hide-on-desktop-menu">
-                                        <a href="#">HOME</a>
-                                        <ul class="dropdown-menu-col-2">
-                                            <li><a href="index.html">Home 1</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">CATEGORIES</a>
-                                        <ul class="dropdown-menu-col-1">
-                                            <li>
-                                                <a asp-controller="Category" asp-action="Index">Category Management</a>
-                                            </li>
-                                            <li>
-                                                <a asp-controller="Home" asp-action="ViewActtion" asp-route-categoryId="1">Acttion</a>
-                                            </li>
-                                            <li>
-                                                <a asp-controller="Home" asp-action="ViewActtion" asp-route-categoryId="2">Role-Playing</a>
-                                            </li>
-                                            <li>
-                                                <a asp-controller="Home" asp-action="ViewSport" asp-route-categoryId="3">Sport</a>
-                                            </li>
-                                            <li>
-                                                <a asp-controller="Home" asp-action="ViewQuizGame" asp-route-categoryId="4">Quiz Game</a>
-                                            </li>
-                                            <li>
-                                                <a asp-controller="Home" asp-action="ViewHorror" asp-route-categoryId="5">Horror</a>
-                                            </li>
-                                            <li>
-                                                <a asp-controller="Home" asp-action="ViewStrategy" asp-route-categoryId="6">Strategy</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">BLOG</a>
-                                        <ul class="dropdown-menu-col-1">
-                                            <li>
-                                                <a asp-controller="Posts" asp-action="ViewAllPost">All Post</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <!-- Header Area End Here -->
-        <!-- Inne Page Banner Area Start Here -->
-        <section class="slider-wrap-layout1">
+<div id="wrapper" class="wrapper">
+    <!-- Add your site or application content here -->
+    <!-- Header Area Start Here -->
+    <header class="has-mobile-menu">
+        <div id="header-middlebar" class="pt--29 pb--29 bg--dark">
             <div class="container">
-                <div class="rc-carousel nav-control-layout1" data-loop="true" data-items="30" data-margin="30" data-autoplay="false" data-autoplay-timeout="5000" data-smart-speed="2000" data-dots="false" data-nav="true" data-nav-speed="false" data-r-x-small="1" data-r-x-small-nav="true" data-r-x-small-dots="false" data-r-x-medium="1" data-r-x-medium-nav="true" data-r-x-medium-dots="false" data-r-small="1" data-r-small-nav="true" data-r-small-dots="false" data-r-medium="1" data-r-medium-nav="true" data-r-medium-dots="false" data-r-large="1" data-r-large-nav="true" data-r-large-dots="false" data-r-extra-large="1" data-r-extra-large-nav="true" data-r-extra-large-dots="false">
-                    @foreach (var post in Model)
-                    {
+                <div class="row d-flex align-items-center">
+                    <div class="col-lg-4">
+                        <div class="header-action-items">
+                            <ul>
+                                <li class="item-social-layout2"> <a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li class="item-social-layout2"> <a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li class="item-social-layout2"> <a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li class="item-social-layout2"> <a href="#"><i class="fab fa-youtube"></i></a></li>
+                                <li class="item-social-layout2"> <a href="#"><i class="fas fa-rss"></i></a></li>
+                                <li class="item-social-layout2"> <a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li class="item-social-layout2"> <a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-flex justify-content-center">
+                        <div class="logo-area">
+                            <a asp-controller="Home" asp-action="Index" class="temp-logo" id="temp-logo">
+                                <h1 style="color:white">GameBlog</h1>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-flex justify-content-end">
+                        <div class="header-action-items">
+                            <ul>
+                                <li class="header-search-box divider-style-border">
+                                    <a href="#header-search" title="Search">
+                                        <i class="flaticon-magnifying-glass"></i>
+                                    </a>
+                                </li>
+                                <li class="hide-on-mobile-menu">
+                                    <a style="color:white" asp-controller="Account" asp-action="Login"><i class="flaticon-profile"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="rt-sticky-placeholder"></div>
+        <div id="header-menu" class="header-menu menu-layout1 bg--light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav id="dropdown" class="template-main-menu">
+                            <ul>
+                                <li class="hide-on-mobile-menu">
+                                    <a asp-controller="Home" asp-action="Index">HOME</a>
+                                </li>
+                                <li class="hide-on-desktop-menu">
+                                    <a href="#">HOME</a>
+                                    <ul class="dropdown-menu-col-2">
+                                        <li><a href="index.html">Home 1</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">CATEGORIES</a>
+                                    <ul class="dropdown-menu-col-1">
+                                        <li>
+                                            <a asp-controller="Category" asp-action="Index">Category Management</a>
+                                        </li>
+                                        <li>
+                                            <a asp-controller="Home" asp-action="ViewAction" asp-route-categoryId="1">Action</a>
+                                        </li>
+                                        <li>
+                                            <a asp-controller="Home" asp-action="ViewRolePlaying" asp-route-categoryId="2">Role-Playing</a>
+                                        </li>
+                                        <li>
+                                            <a asp-controller="Home" asp-action="ViewSport" asp-route-categoryId="3">Sport</a>
+                                        </li>
+                                        <li>
+                                            <a asp-controller="Home" asp-action="ViewQuizGame" asp-route-categoryId="4">Quiz Game</a>
+                                        </li>
+                                        <li>
+                                            <a asp-controller="Home" asp-action="ViewHorror" asp-route-categoryId="5">Horror</a>
+                                        </li>
+                                        <li>
+                                            <a asp-controller="Home" asp-action="ViewStrategy" asp-route-categoryId="6">Strategy</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">BLOG</a>
+                                    <ul class="dropdown-menu-col-1">
+                                        <li>
+                                            <a asp-controller="Posts" asp-action="ViewAllPost">All Post</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header Area End Here -->
+    <!-- Inne Page Banner Area Start Here -->
+    <section class="slider-wrap-layout1">
+        <div class="container">
+            <div class="rc-carousel nav-control-layout1" data-loop="true" data-items="30" data-margin="30" data-autoplay="false" data-autoplay-timeout="5000" data-smart-speed="2000" data-dots="false" data-nav="true" data-nav-speed="false" data-r-x-small="1" data-r-x-small-nav="true" data-r-x-small-dots="false" data-r-x-medium="1" data-r-x-medium-nav="true" data-r-x-medium-dots="false" data-r-small="1" data-r-small-nav="true" data-r-small-dots="false" data-r-medium="1" data-r-medium-nav="true" data-r-medium-dots="false" data-r-large="1" data-r-large-nav="true" data-r-large-dots="false" data-r-extra-large="1" data-r-extra-large-nav="true" data-r-extra-large-dots="false">
+                @foreach (var post in Model)
+                {
                     <div class="slider-box-layout1">
                         <div class="item-img">
                             <img src="@Url.Content(post.Pictures)" alt="slider">
@@ -127,20 +129,20 @@
                             </div>
                         </div>
                     </div>
-                    }
-                </div>
+                }
             </div>
-        </section>
-        <!-- Inne Page Banner Area End Here -->
-        <!-- Blog Area Start Here -->
-        <section class="blog-wrap-layout23">
-            <div class="container">
-                <div class="row gutters-50">
-                    <div class="col-lg-8">
-                        <div>
-                            <div class="row gutters-40" id="no-equal-gallery">
-                                @foreach (var post in Model)
-                                {
+        </div>
+    </section>
+    <!-- Inne Page Banner Area End Here -->
+    <!-- Blog Area Start Here -->
+    <section class="blog-wrap-layout23">
+        <div class="container">
+            <div class="row gutters-50">
+                <div class="col-lg-8">
+                    <div>
+                        <div class="row gutters-40" id="no-equal-gallery">
+                            @foreach (var post in Model)
+                            {
                                 <div class="col-sm-6 no-equal-item">
                                     <div class="blog-box-layout3">
                                         <div class="item-img">
@@ -148,7 +150,19 @@
                                         </div>
                                         <div class="item-content">
                                             <ul class="entry-meta meta-color-dark">
-                                                <li><i class="fas fa-calendar-alt"></i>@Html.DisplayFor(modelItem => post.DateSubmitted)</li>
+                                                <li>
+                                                    <i class="fas fa-calendar-alt"></i>
+                                                    @Html.DisplayFor(modelItem => post.DateSubmitted)
+                                                    @switch (post.CategoryId)
+                                                    {
+                                                        case 1:<p>Action</p> break;
+                                                        case 2: <p>Role-Playing</p>break;
+                                                        case 3: <p>Sport</p>break;
+                                                        case 4: <p>Quiz Game</p>break;
+                                                        case 5: <p>Horror</p>break;
+                                                        case 6: <p>Strategy</p>break;
+                                                    }
+                                                </li>
                                             </ul>
                                             <h3 class="item-title"><a asp-controller="Home" asp-action="BlogPage" asp-route-PostId="@post.PostId">@Html.DisplayFor(modelItem => post.PostName)</a></h3>
 
@@ -158,96 +172,95 @@
                                         </div>
                                     </div>
                                 </div>
-                                }
-                            </div>
+                            }
                         </div>
-                    </div>
-                    <div class="col-lg-4 sidebar-widget-area sidebar-break-md">
-                        <div class="widget">
-                            <div class="section-heading heading-dark">
-                                <h3 class="item-heading">SUBSCRIBE &amp; FOLLOW</h3>
-                            </div>
-                            <div class="widget-follow-us">
-                                <ul>
-                                    <li class="single-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li class="single-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li class="single-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                    <li class="single-item"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li class="single-item"><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
-                                    <li class="single-item"><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                                    <li class="single-item"><a href="#"><i class="fab fa-github-alt"></i></a></li>
-                                    <li class="single-item"><a href="#"><i class="fab fa-kickstarter-k"></i></a></li>
-                                    <li class="single-item"><a href="#"><i class="fab fa-behance"></i></a></li>
-                                    <li class="single-item"><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="widget">
-                            <div class="widget-newsletter-subscribe-dark">
-                                <h3>GET LATEST UPDATES</h3>
-                                <p>NEWSLETTER SUBSCRIBE</p>
-                                <form class="newsletter-subscribe-form">
-                                    <div class="form-group">
-                                        <input type="text" placeholder="your e-mail address" class="form-control" name="email" data-error="E-mail field is required" required="">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                    <div class="form-group mb-none">
-                                        <button type="submit" class="item-btn">SUBSCRIBE</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
-            </div>
-        </section>
-        <!-- Blog Area End Here -->
-        <!-- Footer Area Start Here -->
-        <footer class="footer-wrap-layout1">
-            <div class="container">
-                <div class="row d-flex align-items-center">
-                    <div class="col-lg-4">
-                        <div class="footer-box-layout1">
-                            <div class="copyright">© 2021. Trương Văn Trọng Nguyên C0621H2</div>
+                <div class="col-lg-4 sidebar-widget-area sidebar-break-md">
+                    <div class="widget">
+                        <div class="section-heading heading-dark">
+                            <h3 class="item-heading">SUBSCRIBE &amp; FOLLOW</h3>
                         </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="footer-box-layout1">
-                            <div class="footer-logo">
-                                <a asp-controller="Home" asp-action="Index" class="btn-group-sm"><h1 style="color:white">GameBlog</h1></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="footer-box-layout1">
-                            <ul class="footer-social">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                                <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
-                                <li><a href="#"><i class="fab fa-github-alt"></i></a></li>
-                                <li><a href="#"><i class="fas fa-rss"></i></a></li>
+                        <div class="widget-follow-us">
+                            <ul>
+                                <li class="single-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li class="single-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li class="single-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li class="single-item"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li class="single-item"><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+                                <li class="single-item"><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                <li class="single-item"><a href="#"><i class="fab fa-github-alt"></i></a></li>
+                                <li class="single-item"><a href="#"><i class="fab fa-kickstarter-k"></i></a></li>
+                                <li class="single-item"><a href="#"><i class="fab fa-behance"></i></a></li>
+                                <li class="single-item"><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
                             </ul>
                         </div>
                     </div>
+                    <div class="widget">
+                        <div class="widget-newsletter-subscribe-dark">
+                            <h3>GET LATEST UPDATES</h3>
+                            <p>NEWSLETTER SUBSCRIBE</p>
+                            <form class="newsletter-subscribe-form">
+                                <div class="form-group">
+                                    <input type="text" placeholder="your e-mail address" class="form-control" name="email" data-error="E-mail field is required" required="">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group mb-none">
+                                    <button type="submit" class="item-btn">SUBSCRIBE</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </footer>
-        <!-- Footer Area End Here -->
-        <!-- Search Box Start Here -->
-        <div id="header-search" class="header-search">
-            <button type="button" class="close">×</button>
-            <form class="header-search-form">
-                <input type="search" value="" placeholder="Type here........">
-                <button type="submit" class="search-btn">
-                    <i class="flaticon-search"></i>
-                </button>
-            </form>
         </div>
-        <!-- Search Box End Here -->
+    </section>
+    <!-- Blog Area End Here -->
+    <!-- Footer Area Start Here -->
+    <footer class="footer-wrap-layout1">
+        <div class="container">
+            <div class="row d-flex align-items-center">
+                <div class="col-lg-4">
+                    <div class="footer-box-layout1">
+                        <div class="copyright">© 2021. Trương Văn Trọng Nguyên C0621H2</div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="footer-box-layout1">
+                        <div class="footer-logo">
+                            <a asp-controller="Home" asp-action="Index" class="btn-group-sm"><h1 style="color:white">GameBlog</h1></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="footer-box-layout1">
+                        <ul class="footer-social">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                            <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                            <li><a href="#"><i class="fab fa-github-alt"></i></a></li>
+                            <li><a href="#"><i class="fas fa-rss"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Area End Here -->
+    <!-- Search Box Start Here -->
+    <div id="header-search" class="header-search">
+        <button type="button" class="close">×</button>
+        <form class="header-search-form" asp-controller="Home" asp-action="Search" method="get">
+            <input type="search" value="" placeholder="Type here........" name="term">
+            <button type="submit" class="search-btn">
+                <i class="flaticon-search"></i>
+            </button>
+        </form>
     </div>
-
+    <!-- Search Box End Here -->
+</div>
 
 

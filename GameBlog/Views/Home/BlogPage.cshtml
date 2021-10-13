@@ -16,7 +16,7 @@
                         <nav id="dropdown" class="template-main-menu">
                             <ul>
                                 <li class="hide-on-mobile-menu">
-                                    <a asp-controller="Account" asp-action="Login">Login</a>
+                                    <a asp-controller="Home" asp-action="Index">HOME</a>
                                 </li>
                                 <li class="hide-on-desktop-menu">
                                     <a href="#">HOME</a>
@@ -31,10 +31,10 @@
                                             <a asp-controller="Category" asp-action="Index">Category Management</a>
                                         </li>
                                         <li>
-                                            <a asp-controller="Home" asp-action="ViewActtion" asp-route-categoryId="1">Acttion</a>
+                                            <a asp-controller="Home" asp-action="ViewAction" asp-route-categoryId="1">Action</a>
                                         </li>
                                         <li>
-                                            <a asp-controller="Home" asp-action="ViewActtion" asp-route-categoryId="2">Role-Playing</a>
+                                            <a asp-controller="Home" asp-action="ViewRolePlaying" asp-route-categoryId="2">Role-Playing</a>
                                         </li>
                                         <li>
                                             <a asp-controller="Home" asp-action="ViewSport" asp-route-categoryId="3">Sport</a>
@@ -94,6 +94,9 @@
                                     <a href="#header-search" title="Search">
                                         <i class="flaticon-magnifying-glass"></i>
                                     </a>
+                                </li>
+                                <li class="hide-on-mobile-menu">
+                                    <a style="color:black" asp-controller="Account" asp-action="Login"><i class="flaticon-profile"></i></a>
                                 </li>
                             </ul>
                         </div>
@@ -156,8 +159,8 @@
     <!-- Search Box Start Here -->
     <div id="header-search" class="header-search">
         <button type="button" class="close">×</button>
-        <form class="header-search-form">
-            <input type="search" value="" placeholder="Type here........">
+        <form class="header-search-form" asp-controller="Home" asp-action="Search" method="get">
+            <input type="search" value="" placeholder="Type here........" name="term">
             <button type="submit" class="search-btn">
                 <i class="flaticon-search"></i>
             </button>

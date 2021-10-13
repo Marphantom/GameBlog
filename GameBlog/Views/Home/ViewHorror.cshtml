@@ -1,4 +1,4 @@
-﻿@model List<Posts>
+﻿@model IEnumerable<GameBlog.Entities.Posts>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -41,7 +41,9 @@
                                         <i class="flaticon-magnifying-glass"></i>
                                     </a>
                                 </li>
-
+                                <li class="hide-on-mobile-menu">
+                                    <a style="color:white" asp-controller="Account" asp-action="Login"><i class="flaticon-profile"></i></a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -56,7 +58,7 @@
                         <nav id="dropdown" class="template-main-menu">
                             <ul>
                                 <li class="hide-on-mobile-menu">
-                                    <a asp-controller="Account" asp-action="Login">Login</a>
+                                    <a asp-controller="Home" asp-action="Index">HOME</a>
                                 </li>
                                 <li class="hide-on-desktop-menu">
                                     <a href="#">HOME</a>
@@ -71,10 +73,10 @@
                                             <a asp-controller="Category" asp-action="Index">Category Management</a>
                                         </li>
                                         <li>
-                                            <a asp-controller="Home" asp-action="ViewActtion" asp-route-categoryId="1">Acttion</a>
+                                            <a asp-controller="Home" asp-action="ViewAction" asp-route-categoryId="1">Action</a>
                                         </li>
                                         <li>
-                                            <a asp-controller="Home" asp-action="ViewActtion" asp-route-categoryId="2">Role-Playing</a>
+                                            <a asp-controller="Home" asp-action="ViewRolePlaying" asp-route-categoryId="2">Role-Playing</a>
                                         </li>
                                         <li>
                                             <a asp-controller="Home" asp-action="ViewSport" asp-route-categoryId="3">Sport</a>
@@ -148,7 +150,19 @@
                                         </div>
                                         <div class="item-content">
                                             <ul class="entry-meta meta-color-dark">
-                                                <li><i class="fas fa-calendar-alt"></i>@Html.DisplayFor(modelItem => post.DateSubmitted)</li>
+                                                <li>
+                                                    <i class="fas fa-calendar-alt"></i>
+                                                    @Html.DisplayFor(modelItem => post.DateSubmitted)
+                                                    @switch (post.CategoryId)
+                                                    {
+                                                        case 1:<p>Action</p> break;
+                                                        case 2: <p>Role-Playing</p>break;
+                                                        case 3: <p>Sport</p>break;
+                                                        case 4: <p>Quiz Game</p>break;
+                                                        case 5: <p>Horror</p>break;
+                                                        case 6: <p>Strategy</p>break;
+                                                    }
+                                                </li>
                                             </ul>
                                             <h3 class="item-title"><a asp-controller="Home" asp-action="BlogPage" asp-route-PostId="@post.PostId">@Html.DisplayFor(modelItem => post.PostName)</a></h3>
 
@@ -239,8 +253,8 @@
     <!-- Search Box Start Here -->
     <div id="header-search" class="header-search">
         <button type="button" class="close">×</button>
-        <form class="header-search-form">
-            <input type="search" value="" placeholder="Type here........">
+        <form class="header-search-form" asp-controller="Home" asp-action="Search" method="get">
+            <input type="search" value="" placeholder="Type here........" name="term">
             <button type="submit" class="search-btn">
                 <i class="flaticon-search"></i>
             </button>

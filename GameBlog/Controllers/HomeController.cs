@@ -59,8 +59,8 @@ namespace GameBlog.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        [Route("Shop/ViewActtion/{categoryId}")]
-        public IActionResult ViewActtion(int categoryId)
+        [Route("Shop/ViewAction/{categoryId}")]
+        public IActionResult ViewAction(int categoryId)
         {
         return View(postService.GetPostByCategoryId(categoryId));
         }
@@ -93,6 +93,11 @@ namespace GameBlog.Controllers
         public IActionResult ViewStrategy(int categoryId)
         {
             return View(postService.GetPostByCategoryId(categoryId));
+        }
+
+        public IActionResult Search(string term)
+        {
+            return View("Index", postService.Search(term));
         }
     }
 }
