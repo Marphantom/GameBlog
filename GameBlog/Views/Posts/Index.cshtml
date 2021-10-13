@@ -16,12 +16,6 @@
         <i class="fa fa-backward"> Back to category</i>
     </a>
 </p>
-<form class="input-group w-50 float-right" asp-action="Search" method="get">
-    <input type="text" class="form-control" placeholder="Search for" name="term" />
-    <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="submit">Search</button>
-    </div>
-</form>
 <table class="table table-bordered table-hover table-striped">
     <thead class="thead-dark">
         <tr>
@@ -30,9 +24,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.PostName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pictures)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.DateSubmitted)
@@ -49,9 +40,6 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => posts.PostName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => posts.Pictures)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => posts.DateSubmitted)

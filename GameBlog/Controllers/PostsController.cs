@@ -133,7 +133,7 @@ namespace GameBlog.Controllers
 
         public IActionResult Search(string term)
         {
-            return View("Index", postService.Search(term));
+            return View("ViewAllPost", postService.Search(term));
         }
     }
 }

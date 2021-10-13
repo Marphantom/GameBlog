@@ -54,7 +54,7 @@ namespace GameBlog.Controllers
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();
-            return RedirectToAction("Login", "Account");
+            return RedirectToAction("Index", "Home");
         }
         [HttpGet]
         public async Task<IActionResult> Register()
